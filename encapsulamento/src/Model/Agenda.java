@@ -1,0 +1,38 @@
+package Model;
+
+public class Agenda {
+
+    private String nome;
+    private String telefone;
+
+    private static int contador = 0;
+    private int number;
+
+    public Agenda(String nome, String telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
+        contador++;
+        this.number = contador;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void showDetails(){
+
+        System.out.println(number + ". " + nome + " - " + telefone);
+    }
+}
