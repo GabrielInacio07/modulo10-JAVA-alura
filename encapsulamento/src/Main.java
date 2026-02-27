@@ -1,22 +1,21 @@
-import Model.Bateria;
-import Model.User;
+
+import Model.ContaBancaria;
 
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Ex05");
+        System.out.println("Ex06");
 
         Scanner input = new Scanner(System.in);
-        Bateria battery = new Bateria();
+        ContaBancaria banco = new ContaBancaria("Jhonny");
 
-        System.out.println("Digite o nível da bateria:");
-        int nivelBattery = Integer.parseInt(input.nextLine());
+        banco.depositar(200);
+        banco.sacar(10);
+        banco.sacar(500);
 
-        battery.setNivel(nivelBattery);
-
-        System.out.println(battery.verificarStatus());
+        banco.exibirSaldo();
 
         input.close();
     }
