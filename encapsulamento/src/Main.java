@@ -1,22 +1,15 @@
-
-import Model.ContaBancaria;
-
-import java.util.Scanner;
+import Model.Filme;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Ex06");
 
-        Scanner input = new Scanner(System.in);
-        ContaBancaria banco = new ContaBancaria("Jhonny");
+        Filme filme = new Filme("Rambo");
 
-        banco.depositar(200);
-        banco.sacar(10);
-        banco.sacar(500);
+        filme.adicionarAvaliacao(5);
+        filme.adicionarAvaliacao(4);
+        filme.adicionarAvaliacao(3);
 
-        banco.exibirSaldo();
-
-        input.close();
+        filme.exibirMedia();
     }
 }
