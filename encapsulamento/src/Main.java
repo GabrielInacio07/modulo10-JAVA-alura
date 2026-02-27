@@ -1,15 +1,37 @@
-import Model.Filme;
+import Model.Login;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Filme filme = new Filme("Rambo");
+        Scanner input = new Scanner(System.in);
 
-        filme.adicionarAvaliacao(5);
-        filme.adicionarAvaliacao(4);
-        filme.adicionarAvaliacao(3);
+        Login usuario = new Login("adminTESTE", "admin@123");
 
-        filme.exibirMedia();
+        int tentativas = 3;
+
+        while (tentativas > 0) {
+
+            System.out.print("Login: ");
+            String loginDigitado = input.nextLine();
+
+            System.out.print("Senha: ");
+            String senhaDigitada = input.nextLine();
+
+            if (usuario.validarSenha(loginDigitado, senhaDigitada)) {
+                System.out.println("Login bem-sucedido!");
+                break;
+            } else {
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Senha incorreta. Tentativas restantes: " + tentativas);
+                } else {
+                    System.out.println("Acesso bloqueado.");
+                }
+            }
+        }
+
+        input.close();
     }
 }
