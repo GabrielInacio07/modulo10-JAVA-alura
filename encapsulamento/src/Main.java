@@ -1,3 +1,4 @@
+import Model.Bateria;
 import Model.User;
 
 import java.util.Scanner;
@@ -5,23 +6,17 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Ex04");
+        System.out.println("Ex05");
 
         Scanner input = new Scanner(System.in);
+        Bateria battery = new Bateria();
 
-        User usuario = new User("TESTE123");
+        System.out.println("Digite o nível da bateria:");
+        int nivelBattery = Integer.parseInt(input.nextLine());
 
-        System.out.print("Digite a senha atual: ");
-        String senhaAtual = input.nextLine();
+        battery.setNivel(nivelBattery);
 
-        System.out.print("Digite a nova senha: ");
-        String novaSenha = input.nextLine();
-
-        if (usuario.alterarSenha(senhaAtual, novaSenha)) {
-            System.out.println("Senha alterada com sucesso!");
-        } else {
-            System.out.println("Senha atual incorreta!");
-        }
+        System.out.println(battery.verificarStatus());
 
         input.close();
     }
