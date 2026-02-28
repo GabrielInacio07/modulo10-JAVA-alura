@@ -1,3 +1,4 @@
+import Model.Aluno;
 import Model.Login;
 import java.util.Scanner;
 
@@ -7,30 +8,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        Login usuario = new Login("adminTESTE", "admin@123");
+        Aluno student = new Aluno("Gabriel Inácio");
 
-        int tentativas = 3;
+        System.out.print("Olá " + student.getNome() + " digite sua pontuação: ");
+        int pontos = Integer.parseInt(input.nextLine());
 
-        while (tentativas > 0) {
+        student.ganharPontar(pontos);
 
-            System.out.print("Login: ");
-            String loginDigitado = input.nextLine();
-
-            System.out.print("Senha: ");
-            String senhaDigitada = input.nextLine();
-
-            if (usuario.validarSenha(loginDigitado, senhaDigitada)) {
-                System.out.println("Login bem-sucedido!");
-                break;
-            } else {
-                tentativas--;
-                if (tentativas > 0) {
-                    System.out.println("Senha incorreta. Tentativas restantes: " + tentativas);
-                } else {
-                    System.out.println("Acesso bloqueado.");
-                }
-            }
-        }
+        student.exibirStatusAluno();
 
         input.close();
     }
