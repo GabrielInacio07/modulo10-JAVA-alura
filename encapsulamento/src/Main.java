@@ -1,4 +1,5 @@
 import Model.Aluno;
+import Model.Disciplina;
 import Model.Login;
 import java.util.Scanner;
 
@@ -8,14 +9,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        Aluno student = new Aluno("Gabriel Inácio");
+        Disciplina materia = new Disciplina("Matemática");
 
-        System.out.print("Olá " + student.getNome() + " digite sua pontuação: ");
-        int pontos = Integer.parseInt(input.nextLine());
+        materia.adicionarNota(10);
+        materia.adicionarNota(-5);
+        materia.adicionarNota(3);
+        materia.adicionarNota(-2);
 
-        student.ganharPontar(pontos);
-
-        student.exibirStatusAluno();
+        materia.showDetails();
 
         input.close();
     }
